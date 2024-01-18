@@ -35,7 +35,7 @@ export default function PortfolioNavigation() {
   return (
     <Disclosure as="nav" className="bg-blue-800">
       <>
-        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 flex justify-end">
           <div className="relative flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
               <Disclosure.Button
@@ -65,12 +65,12 @@ export default function PortfolioNavigation() {
                       smooth={true}
                       offset={-70}
                       duration={500}
-                      className={classNames(
-                        item.current ? ' text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white cursor-pointer',
-                        'rounded-md px-3 py-2 text-sm font-medium'
-                      )}
+                      className={`
+                        rounded-md px-3 py-2 text-base font-medium
+                        ${item.current ? 'text-white' : 'text-white hover:border-b-2 border-transparent hover:border-white cursor-pointer'}
+                      `}
                       activeClass="text-white"
-                      onClick={handleLinkClick(item.to)}
+                      onClick={() => handleLinkClick(item.to)}
                     >
                       {item.name}
                     </ScrollLink>
@@ -93,7 +93,7 @@ export default function PortfolioNavigation() {
                 duration={500}
                 className={classNames(
                   item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white cursor-pointer',
-                  'block rounded-md px-3 py-2 text-base font-medium'
+                  'block rounded-md px-3 py-2 text-lg font-medium'
                 )}
                 activeClass="text-white"
                 onClick={handleLinkClick(item.to)}
